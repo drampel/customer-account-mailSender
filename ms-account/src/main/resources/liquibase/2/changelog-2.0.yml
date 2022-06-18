@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create account_history table
+      author: Drampel
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+              - column:
+                  name: account_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_account_id
+                    references: account(id)
+              - column:
+                  name: customer_id
+                  type: bigint
+              - column:
+                  name: account_no
+                  type: varchar(20)
+              - column:
+                  name: amount
+                  type: decimal
+              - column:
+                  name: currency
+                  type: varchar(8)
+              - column:
+                  name: status
+                  type: varchar(8)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+            remarks: A String
+            schemaName: public
+            tableName: account_history
