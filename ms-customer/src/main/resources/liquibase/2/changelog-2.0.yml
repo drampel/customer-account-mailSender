@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create customer_history table
+      author: Drampel
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+              - column:
+                  name: customer_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_customer_id
+                    references: customer(id)
+              - column:
+                  name: name
+                  type: varchar(16)
+              - column:
+                  name: surname
+                  type: varchar(16)
+              - column:
+                  name: birthdate
+                  type: date
+              - column:
+                  name: phone_number
+                  type: varchar(16)
+              - column:
+                  name: email
+                  type: varchar(256)
+              - column:
+                  name: status
+                  type: varchar(8)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+            remarks: A String
+            schemaName: public
+            tableName: customer_history
