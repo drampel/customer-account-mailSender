@@ -1,0 +1,20 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: example@gmail.com  #TODO email example
+    password: zzkinlgdtircczzk  #TODO application password generated in gmail
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+queue:
+  mail-sender-q: Mail_Sender_Q
